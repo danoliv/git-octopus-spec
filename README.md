@@ -1,4 +1,6 @@
 # git-octopus-spec
+<a href="https://copr.fedorainfracloud.org/coprs/baitaand/git-octopus/package/git-octopus/"><img src="https://copr.fedorainfracloud.org/coprs/baitaand/git-octopus/package/git-octopus/status_image/last_build.png" /></a>
+
 Spec file for git-octopus rpm packaging.
 
 https://github.com/lesfurets/git-octopus
