@@ -5,12 +5,12 @@ Summary:    Git commands for continuous delivery
 
 License:    LGPLv3
 URL:        https://github.com/lesfurets/git-octopus
-Source0:    https://github.com/lesfurets/%{name}/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
+Source0:    %{url}/archive/v%{version}/%{name}-%{version}.tar.gz
 
 BuildArch:  noarch
 
 Requires:   git >= 1.8
-Requires:   /usr/bin/shasum
+Requires:   %{_bindir}/shasum
 
 
 %description
@@ -24,11 +24,11 @@ it.
 
 
 %build
-make %{?_smp_mflags}
+%make_build
 
 
 %install
-make install prefix="%{buildroot}%{_prefix}"
+%make_install prefix="%{buildroot}%{_prefix}"
 rm -rf %{buildroot}%{_docdir}/git-doc
 
 
@@ -36,11 +36,12 @@ rm -rf %{buildroot}%{_docdir}/git-doc
 %doc README.md doc/*.html
 %license LICENSE
 %{_bindir}/git-*
-%{_mandir}/man1/git-*.1.*
+%{_mandir}/man1/git-*.1*
 
 
 %changelog
 * Wed Nov 30 2016 Andrea Baita <andrea@baita.pro> - 1.4-1
 - Packaging of version 1.4.
+
 * Thu Nov 17 2016 Xavier Bachelot <xavier@bachelot.org> - 1.3-1
 - Initial package.
