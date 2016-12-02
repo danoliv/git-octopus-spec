@@ -1,5 +1,7 @@
 # git-octopus-spec
-Spec file for git-octopus rpm packaging
+Spec file for git-octopus rpm packaging.
+
+https://github.com/lesfurets/git-octopus
 
 # usage
   get the tarball
