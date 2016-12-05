@@ -11,6 +11,7 @@ BuildArch:  noarch
 
 Requires:   git >= 1.8
 Requires:   %{_bindir}/shasum
+BuildRequires: %{_bindir}/a2x
 
 
 %description
