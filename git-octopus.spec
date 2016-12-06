@@ -1,6 +1,6 @@
 Name:       git-octopus
 Version:    1.4
-Release:    1%{?dist}
+Release:    2%{?dist}
 Summary:    Git commands for continuous delivery
 
 License:    LGPLv3
@@ -11,7 +11,7 @@ BuildArch:  noarch
 
 Requires:   git >= 1.8
 Requires:   %{_bindir}/shasum
-BuildRequires: %{_bindir}/a2x
+BuildRequires: asciidoc
 
 
 %description
@@ -26,11 +26,12 @@ it.
 
 %build
 %make_build
+make build-docs
 
 
 %install
-%make_install prefix="%{buildroot}%{_prefix}"
-rm -rf %{buildroot}%{_docdir}/git-doc
+%make_install prefix="%{buildroot}%{_prefix}" \
+              docdir="%{buildroot}%{_docdir}/%{name}%{?rhel:-%{version}}"
 
 
 %files
@@ -41,6 +42,9 @@ rm -rf %{buildroot}%{_docdir}/git-doc
 
 
 %changelog
+* Tue Dec 06 2016 Andrea Baita <andrea@baita.pro> - 1.4-2
+- added documentation build, updated build requires
+
 * Wed Nov 30 2016 Andrea Baita <andrea@baita.pro> - 1.4-1
 - Packaging of version 1.4.
 
