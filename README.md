@@ -21,9 +21,7 @@ Install mock and add current user to mock group:
     sudo yum install mock
     sudo usermod -a -G mock $(id -u -n)
     
-Clone the spec file project
-
-The project contains the spec file needed to build the rpm
+Clone the spec file project (the project contains the spec file needed to build the rpm)
 
     git clone https://github.com/danoliv/git-octopus-spec.git
 
@@ -54,11 +52,11 @@ Update the changelog in the spec files:
     
 ## Build the RPM
 
-retrieve the tarball, the file will be put into ~/rpmbuild/SOURCES (will create a directory if not exists)
+retrieve the tarball, the file will be put into `~/rpmbuild/SOURCES` (will create a directory if not exists)
 
     spectool -g -R git-octopus.spec
     
-build the source rpm, the file will be put into ~/rpmbuild/SRPMS/ (will create a directory if not exists):
+build the source rpm, the file will be put into `~/rpmbuild/SRPMS/` (will create a directory if not exists):
 
     rpmbuild -bs git-octopus.spec
     
@@ -66,7 +64,7 @@ finally build the rpm, by passing the src.rpm file created in the previous step:
 
     mock -r epel-6-x86_64 ~/rpmbuild/SRPMS/git-octopus-1.4-2.el6.src.rpm
 
-the results will be usually available in the directory: /var/lib/mock/epel-6-x86_64/result (check the output of mock command)
+the results will be usually available in the directory: `/var/lib/mock/epel-6-x86_64/result` (check the output of mock command)
 
 **If the rpm build fails the spec there could have been some incompatible modification on the code, the spec file should be updated accordingly.**
 
