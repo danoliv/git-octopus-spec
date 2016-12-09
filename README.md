@@ -31,7 +31,7 @@ Clone the spec file project (the project contains the spec file needed to build 
 
 Check the last available version of git-octopus from the official repo: [https://github.com/lesfurets/git-octopus/releases/latest](https://github.com/lesfurets/git-octopus/releases/latest)
 
-Update the Version tag of the spec file to match the latest version, set the Release number to 1:
+Update the Version tag of the spec file to match the latest version, set the Release number to 1 for a new version, increase it if it is only a packaging modification:
 
     Name:   	git-octopus
     Version:	1.4
@@ -60,11 +60,15 @@ build the source rpm, the file will be put into `~/rpmbuild/SRPMS/` (will create
 
     rpmbuild -bs git-octopus.spec
     
-finally build the rpm, by passing the src.rpm file created in the previous step:
+finally build the rpm, by passing the src.rpm file created in the previous step, indicate a configuration to use from `/etc/mock/`, without the path prefix and the .cfg suffix:
 
+    mock -r <configuration> ~/rpmbuild/SRPMS/git-octopus-<version>.<release>.src.rpm
+
+example:
+    
     mock -r epel-6-x86_64 ~/rpmbuild/SRPMS/git-octopus-1.4-2.el6.src.rpm
 
-the results will be usually available in the directory: `/var/lib/mock/epel-6-x86_64/result` (check the output of mock command)
+the results will be usually available in the directory: `/var/lib/mock/<configuration>/result` (check the output of mock command)
 
 **If the rpm build fails the spec there could have been some incompatible modification on the code, the spec file should be updated accordingly.**
 
@@ -81,4 +85,4 @@ check the git octopus version
 
 ## Make a pull request
 
-follow the following guide: https://guides.github.com/activities/forking/
+Please make a pull request following the github guide: https://guides.github.com/activities/forking/
