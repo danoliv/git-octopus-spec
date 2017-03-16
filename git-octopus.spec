@@ -1,6 +1,6 @@
 Name:       git-octopus
 Version:    1.4
-Release:    2%{?dist}
+Release:    3%{?dist}
 Summary:    Git commands for continuous delivery
 
 License:    LGPLv3
@@ -26,7 +26,7 @@ it.
 
 %build
 %make_build
-make build-docs
+make %{?_smp_mflags} build-docs 
 
 
 %install
@@ -42,6 +42,9 @@ make build-docs
 
 
 %changelog
+* Mon Jan 30 2017 Andrea Baita <andrea@baita.pro> - 1.4-3
+- added ?_smp_mflags 
+
 * Tue Dec 06 2016 Andrea Baita <andrea@baita.pro> - 1.4-2
 - added documentation build, updated build requires
 
