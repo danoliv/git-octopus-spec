@@ -1,5 +1,6 @@
 # Build project from bundled dependencies
 %global with_bundled 0
+%global debug_package %{nil}
 
 %if ! 0%{?gobuild:1}
 %define gobuild(o:) go build -ldflags "${LDFLAGS:-} -B 0x$(head -c20 /dev/urandom|od -An -tx1|tr -d ' \\n')" -a -v -x %{?**};
@@ -17,7 +18,7 @@
 
 Name:           git-octopus
 Version:        2.0
-Release:        1.beta.1%{?dist}
+Release:        0.1.beta.1%{?dist}
 Summary:        Git commands for continuous delivery
 License:        LGPLv3
 URL:            https://%{provider_prefix}
@@ -37,8 +38,6 @@ BuildRequires: asciidoc
 The continuous merge workflow is meant for continuous integration/delivery and
 is based on feature branching. git-octopus provides git commands to implement
 it.
-
-%global debug_package %{nil}
 
 %prep
 %setup -q -n %{repo}-%{commit}
@@ -76,9 +75,6 @@ ln -s ./ ./vendor/src # ./vendor/src -> ./vendor
 export GOPATH=%{buildroot}/%{gopath}:$(pwd)/vendor:%{gopath}
 %endif
 
-#define license tag if not already defined
-%{!?_licensedir:%global license %doc}
-
 %files
 %doc README.md doc/*.html
 %license LICENSE
@@ -86,7 +82,7 @@ export GOPATH=%{buildroot}/%{gopath}:$(pwd)/vendor:%{gopath}
 %{_mandir}/man1/git-*.1*
 
 %changelog
-* Mon Apr 10 2017 Jabouille Jean Charles <jean-charles.jabouille@kelkoo.com> - 2.0.beta.1-1
+* Mon Apr 10 2017 Jabouille Jean Charles <jean-charles.jabouille@kelkoo.com> - 2.0.beta.1-0.1
 - package go beta version
 
 * Mon Jan 30 2017 Andrea Baita <andrea@baita.pro> - 1.4-3
