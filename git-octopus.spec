@@ -18,7 +18,7 @@
 
 Name:           git-octopus
 Version:        2.0
-Release:        0.1.beta.1%{?dist}
+Release:        0.1.beta1%{?dist}
 Summary:        Git commands for continuous delivery
 License:        LGPLv3
 URL:            https://%{provider_prefix}
@@ -82,7 +82,7 @@ export GOPATH=%{buildroot}/%{gopath}:$(pwd)/vendor:%{gopath}
 %{_mandir}/man1/git-*.1*
 
 %changelog
-* Mon Apr 10 2017 Jabouille Jean Charles <jean-charles.jabouille@kelkoo.com> - 2.0.beta.1-0.1
+* Mon Apr 10 2017 Jabouille Jean Charles <jean-charles.jabouille@kelkoo.com> - 2.0-0.1.beta1
 - package go beta version
 
 * Mon Jan 30 2017 Andrea Baita <andrea@baita.pro> - 1.4-3
