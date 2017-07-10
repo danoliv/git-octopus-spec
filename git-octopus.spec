@@ -18,7 +18,7 @@
 
 Name:           git-octopus
 Version:        2.0
-Release:        0.1.beta2%{?dist}
+Release:        0.2.beta2%{?dist}
 Summary:        Git commands for continuous delivery
 License:        LGPLv3
 URL:            https://%{provider_prefix}
@@ -27,7 +27,7 @@ Source0:        https://%{provider_prefix}/archive/%{commit}/%{repo}-%{shortcomm
 # e.g. el6 has ppc64 arch without gcc-go, so EA tag is required
 ExclusiveArch:  %{?go_arches:%{go_arches}}%{!?go_arches:%{ix86} x86_64 aarch64 %{arm}}
 
-Requires:   git >= 1.8
+Requires:   git 
 Requires:   %{_bindir}/shasum
 
 # If go_compiler is not set to 1, there is no virtual provide. Use golang instead.
@@ -82,7 +82,7 @@ export GOPATH=%{buildroot}/%{gopath}:$(pwd)/vendor:%{gopath}
 %{_mandir}/man1/git-*.1*
 
 %changelog
-* Fri Jun 30 2017 Andrea Baita <andrea@baita.pro> - 2.0-0.1.beta2
+* Fri Jun 30 2017 Andrea Baita <andrea@baita.pro> - 2.0-0.2.beta2
 - package go beta version 2
 
 * Mon Apr 10 2017 Jabouille Jean Charles <jean-charles.jabouille@kelkoo.com> - 2.0-0.1.beta1
