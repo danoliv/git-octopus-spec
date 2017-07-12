@@ -13,12 +13,12 @@
 # https://github.com/lesfurets/git-octopus
 %global provider_prefix %{provider}.%{provider_tld}/%{project}/%{repo}
 %global import_path     %{provider_prefix}
-%global commit          4ad9ba8a30e7e03b9791863e2dcb9426509ab58b
+%global commit          05ad486a5bb5d46d2d1127a860d425a2ec184e9e
 %global shortcommit     %(c=%{commit}; echo ${c:0:7})
 
 Name:           git-octopus
 Version:        2.0
-Release:        0.2.beta2%{?dist}
+Release:        0.3.beta3%{?dist}
 Summary:        Git commands for continuous delivery
 License:        LGPLv3
 URL:            https://%{provider_prefix}
@@ -82,6 +82,9 @@ export GOPATH=%{buildroot}/%{gopath}:$(pwd)/vendor:%{gopath}
 %{_mandir}/man1/git-*.1*
 
 %changelog
+* Tue Jul 11 2017 Andrea Baita <andrea@baita.pro> - 2.0-0.3.beta3
+- package go beta version 3
+
 * Fri Jun 30 2017 Andrea Baita <andrea@baita.pro> - 2.0-0.2.beta2
 - package go beta version 2
 
